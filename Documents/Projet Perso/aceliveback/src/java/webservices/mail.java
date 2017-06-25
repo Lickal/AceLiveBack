@@ -58,12 +58,12 @@ public class mail {
             MimeMessage message = new MimeMessage(session);
             message.setFrom(new InternetAddress(from));
             //message.setText(text);
-            message.setSubject(this.objet);
-            message.setContent(this.message, "text/html; charset=utf-8");
+            message.setSubject(this.getObjet());
+            message.setContent(this.getMessage(), "text/html; charset=utf-8");
             
             //Address[] myList = new InternetAddress[destinataires.length];
           
-                message.addRecipients(Message.RecipientType.BCC,InternetAddress.parse(this.destinataire));
+                message.addRecipients(Message.RecipientType.BCC,InternetAddress.parse(this.getDestinataire()));
             
             
             // 3 -> Envoi du message
@@ -72,4 +72,47 @@ public class mail {
             System.out.println("Message envoyé !");
         } catch (MessagingException e) {
             e.printStackTrace();
-        }}}
+        }}
+
+    /**
+     * @return the objet
+     */
+    public String getObjet() {
+        return objet;
+    }
+
+    /**
+     * @param objet the objet to set
+     */
+    public void setObjet(String objet) {
+        this.objet = objet;
+    }
+
+    /**
+     * @return the destinataire
+     */
+    public String getDestinataire() {
+        return destinataire;
+    }
+
+    /**
+     * @param destinataire the destinataire to set
+     */
+    public void setDestinataire(String destinataire) {
+        this.destinataire = destinataire;
+    }
+
+    /**
+     * @return the message
+     */
+    public String getMessage() {
+        return message;
+    }
+
+    /**
+     * @param message the message to set
+     */
+    public void setMessage(String message) {
+        this.message = message;
+    }
+}

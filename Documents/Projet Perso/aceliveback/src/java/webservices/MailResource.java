@@ -5,6 +5,7 @@
  */
 package webservices;
 
+import javax.ejb.Stateless;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Produces;
@@ -14,12 +15,14 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
 import javax.ws.rs.core.MediaType;
+import webservices.mail;
 
 /**
  * REST Web Service
  *
  * @author Benjamin
  */
+@Stateless
 @Path("mail")
 public class MailResource {
 
@@ -35,7 +38,7 @@ public class MailResource {
     /**
      * Retrieves representation of an instance of webservices.MailResource
      *
-     * @return an instance of java.lang.String
+     * @param entity
      */
     @POST
     @Produces(MediaType.APPLICATION_JSON)
